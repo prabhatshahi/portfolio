@@ -20,6 +20,7 @@ body {
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  animation: slideDown 1s ease forwards; /* Added animation for header */
 }
 
 .logo {
@@ -28,6 +29,7 @@ body {
   color: #ffff;
   text-decoration: none;
   font-weight: 600;
+  cursor: default;
 }
 
 .navbar a {
@@ -42,6 +44,17 @@ body {
 
 .navbar a:hover {
   color: #0ef;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .home {
@@ -61,14 +74,31 @@ body {
 .home-content h3 {
   font-size: 32px;
   font-weight: 700;
+  opacity: 0;
+  animation: slideBottom 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.home-content h3:nth-of-type(2) {
+  margin-bottom: 30px;
 }
 .home-content h3 span {
+  color: #0ef;
+}
+.home-content h1 {
   font-size: 56px;
   font-weight: 700;
   margin: -3px 0;
+  opacity: 0;
+  animation: slideRight 1s ease forwards;
+  animation-delay: 1s;
 }
+
 .home-content p {
   font-size: 20px;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards; /* Added forwards to keep final state */
+  animation-delay: 1.5s;
 }
 
 .home-sci a {
@@ -84,6 +114,10 @@ body {
   text-decoration: none;
   color: #0ef;
   margin: 30px 15px 30px 0;
+  transition: 0.5s ease;
+  opacity: 0;
+  animation: slideLeft 1s ease forwards;
+  animation-delay: calc(0.2s * 1);
 }
 
 .home-sci a:hover {
@@ -109,4 +143,59 @@ body {
   color: #001b29;
   box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan,
     0 0 200px cyan;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideBottom {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1; /* Changed from 0 to 1 */
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }
